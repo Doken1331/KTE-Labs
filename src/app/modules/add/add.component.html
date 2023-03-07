@@ -1,0 +1,51 @@
+<section class="add">
+  <form class="example-form" [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        name="name"
+        formControlName="name"
+        [(ngModel)]="inputName"
+        placeholder="Enter text..."
+        value=""
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        name="description"
+        formControlName="description"
+        [(ngModel)]="inputDesc"
+        placeholder="Enter text..."
+        value=""
+        required
+      />
+    </mat-form-field>
+
+    <div class="example-button-row">
+      <button
+        class="add__form-button"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Add
+      </button>
+    </div>
+
+    <div class="example-button-row">
+      <a
+        class="add__form-link"
+        [routerLink]="'/'"
+        mat-raised-button
+        color="primary"
+        >Go Back!!!</a
+      >
+    </div>
+  </form>
+</section>
