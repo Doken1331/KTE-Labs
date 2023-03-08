@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { itemService } from 'src/app/services/itemService.service';
+import { ItemService } from 'src/app/services/item.service';
 import { IItem } from 'src/app/interfaces/item';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -29,7 +29,7 @@ export class AboutComponent implements OnInit, OnDestroy {
     "description": new FormControl('', [Validators.minLength(4), Validators.required])
   });
 
-  constructor(private itemService: itemService, private route: ActivatedRoute) {
+  constructor(private ItemService: ItemService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -44,7 +44,7 @@ export class AboutComponent implements OnInit, OnDestroy {
   }
 
   public getAllItems(): void {
-    this.itemService.getAllItems().subscribe(res => {
+    this.ItemService.getAllItems().subscribe(res => {
       this.itemArr = res;
 
       for (let i = 0; i < this.itemArr.length; i++) {
@@ -64,7 +64,7 @@ export class AboutComponent implements OnInit, OnDestroy {
       name: this.inputName,
       description: this.inputDesc
     };
-    this.itemService.editItem(item).subscribe(res => {
+    this.ItemService.editItem(item).subscribe(res => {
       this.ngOnInit();
     }, err => {
       alert("Failed to update item");

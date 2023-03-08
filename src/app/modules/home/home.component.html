@@ -1,0 +1,12 @@
+<section class="home">
+    <mat-list class="home__list" role="list">
+      <mat-list-item role="listitem" *ngFor="let item of itemArr">
+        <a class="home__list-link" [routerLink]="['about', item.id]">
+          {{ item.name }}
+        </a>
+        <div class="home__list-delete" (click)="deleteItem(item)">X</div>
+      </mat-list-item>
+    </mat-list>
+    <a class="home__link" [routerLink]="'/add'" mat-raised-button>Add Item</a>
+</section>
+  

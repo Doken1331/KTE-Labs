@@ -1,0 +1,33 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    &__title {
+      margin-bottom: 0;
+    }
+  
+    &__link {
+      margin-top: 10px;
+  
+    }
+  
+    &__list {
+      &-link {
+        position: relative;
+        width: 100%;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        word-break: break-all;
+      }
+  
+      &-delete {
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    }
+  
+  }
+  

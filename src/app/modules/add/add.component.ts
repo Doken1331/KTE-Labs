@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IItem } from 'src/app/interfaces/item';
-import { itemService } from 'src/app/services/itemService.service';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-add',
@@ -21,20 +21,19 @@ export class AddComponent implements OnInit {
     "description": new FormControl('', [Validators.minLength(4), Validators.required])
   });
 
-  constructor(private itemService: itemService) { }
+  constructor(private ItemService: ItemService) { }
 
   ngOnInit(): void {
-    console.log('eslint');
   }
 
-  public submit():void {
+  public submit(): void {
     const item: IItem = {
-      id: this.itemService.makeId(),
+      id: this.ItemService.makeId(),
       name: this.inputName,
       description: this.inputDesc
     };
-    this.itemService.addItem(item).subscribe(res => {
-      this.ngOnInit();
+    this.ItemService.addItem(item).subscribe(res => {
+
     }, err => {
       alert(err);
     });
